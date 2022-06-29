@@ -1,6 +1,6 @@
-catchQuizz();
+catchQuizzes();
 
-function catchQuizz() {
+function catchQuizzes() {
   const promisse = axios.get(
     "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes"
   );

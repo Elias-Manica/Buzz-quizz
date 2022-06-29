@@ -249,4 +249,8 @@ h1 {
     font-size: 19px;
     line-height: 22px;
   }
+
+  .boxQuestion {
+    width: 100%;
+  }
 }
