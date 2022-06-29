@@ -19,7 +19,7 @@ function showAllQuizz(object) {
   for (let i = 0; i < listObjects.length; i++) {
     image = listObjects[i].image;
     title = listObjects[i].title;
-    if (!showList.includes(image) && !showList.includes(title)) {
+    if (!showList.includes(image) || !showList.includes(title)) {
       showList.push(image);
       showList.push(title);
       divAllQuizz.innerHTML += `
@@ -39,4 +39,5 @@ function showAllQuizz(object) {
     `;
     }
   }
+  console.log(showList);
 }
