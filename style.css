@@ -112,8 +112,6 @@ h1 {
   display: flex;
   align-items: flex-end;
   border-radius: 5px;
-  border: solid;
-  border-color: #000000;
   background-size: 340px 181px;
 }
 
@@ -165,5 +163,6 @@ h1 {
 
   .quizz {
     width: 100%;
+    background-size: 100% 181px;
   }
 }
