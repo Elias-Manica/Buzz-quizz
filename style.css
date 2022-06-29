@@ -116,6 +116,7 @@ h1 {
 }
 
 .quizz p {
+  margin-bottom: 10px;
   margin-left: 10px;
   color: #ffffff;
   width: 301px;
