@@ -10,11 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>BuzzQuizz💻</title>
   </head>
   <body>
-    <div class="screen1">
+    <div class="screen1 hidden">
       <div class="topBar">BuzzQuizz</div>
       <div class="contentQuizz">
         <div class="boxMyQuizzEmpty">
@@ -73,8 +74,11 @@
         </div>
       </div>
     </div>
-    <div class="screen2"></div>
-    <div class="screen3"></div>
+    <div class="screen2 hidden">
+      <div class="topBar">BuzzQuizz</div>
+      <div class="bannerQuizz"></div>
+    </div>
+    <div class="screen3 hidden"><div class="topBar">BuzzQuizz</div></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="./scriptScreen1.js"></script>
