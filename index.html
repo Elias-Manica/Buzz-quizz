@@ -15,7 +15,7 @@
     <title>BuzzQuizz💻</title>
   </head>
   <body>
-    <div class="screen1">
+    <div class="screen1 hidden">
       <div class="topBar">BuzzQuizz</div>
       <div class="contentQuizz">
         <div class="boxMyQuizzEmpty">
@@ -74,9 +74,21 @@
         </div>
       </div>
     </div>
-    <div class="screen2 hidden">
+    <div class="screen2">
       <div class="topBar">BuzzQuizz</div>
-      <div class="bannerQuizz"></div>
+      <div
+        class="bannerQuizz"
+        style="
+          background-image: linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.57),
+              rgba(0, 0, 0, 0.57)
+            ),
+            url(./imagens/deferiascomoex.jpg);
+        "
+      >
+        <p>É ex-BBB ou ex-De férias com o Ex?</p>
+      </div>
     </div>
     <div class="screen3 hidden"><div class="topBar">BuzzQuizz</div></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

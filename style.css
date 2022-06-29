@@ -150,6 +150,18 @@ h1 {
   height: 142px;
   background-color: antiquewhite;
   margin-top: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: 100%;
+}
+
+.bannerQuizz p {
+  font-weight: 400;
+  font-size: 39px;
+  line-height: 46px;
+  color: #ffffff;
 }
 
 @media (max-width: 1100px) {
