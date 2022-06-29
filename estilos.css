@@ -1,0 +1,64 @@
+.conteudoScreen3{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 69px;
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 23px;
+}
+
+.conteudoScreen3 input{
+    margin: 0 auto;
+    width: 564px;
+    height: 46px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    color: #bababa;
+    margin-top: 10px;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+strong{
+    font-weight: 700;
+}
+
+.prosseguirParaPergs{
+    background-color: #EC362D;
+    color: #FFF5F4;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 369px;
+    height: 54px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+.divComecarQuizz{
+padding: 10px 10px 20px 10px;
+width: 600px;
+margin: 0 auto;
+margin-top: 20px;
+background-color: #fff;
+border: 1px solid black;
+border-radius: ;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+@media (max-width: 1100px) {
+h1{
+    font-size: 20px;
+}
+
+
+}

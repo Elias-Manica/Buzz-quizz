@@ -12,10 +12,12 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="estilos.css" />
+
     <title>BuzzQuizz💻</title>
   </head>
   <body>
-    <div class="screen1">
+    <div class="screen1 hidden">
       <div class="topBar">BuzzQuizz</div>
       <div class="contentQuizz">
         <div class="boxMyQuizzEmpty">
@@ -74,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="screen2">
+    <div class="screen2 hidden">
       <div class="topBar">BuzzQuizz</div>
       <div
         class="bannerQuizz"
@@ -90,9 +92,36 @@
         <p>É ex-BBB ou ex-De férias com o Ex?</p>
       </div>
     </div>
-    <div class="screen3 hidden"><div class="topBar">BuzzQuizz</div></div>
+
+
+    <div class="screen3">
+      <div class="topBar">BuzzQuizz</div>
+      <div class="conteudoScreen3">
+        <h1><strong>Comece pelo começo</strong></h1>
+        <div class="divComecarQuizz">
+          <input type="text" placeholder="Título do seu quizz" />
+          <input type="text" placeholder="URL da imagem do seu quizz" />
+          <input type="text" placeholder="Quantidade de perguntas do quizz" />
+          <input type="text" placeholder="Quantidade de níveis do quizz" />
+        </div>
+        <div class="prosseguirParaPergs" onclick="prosseguirParaPergs()">
+          Prosseguir pra criar perguntas
+        </div>
+
+
+
+        
+
+      </div>
+      <div>
+
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="./scriptScreen1.js"></script>
+    <script src="./scriptScreen3.js"></script>
+
+
   </body>
 </html>
