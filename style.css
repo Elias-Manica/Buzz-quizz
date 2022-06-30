@@ -81,7 +81,7 @@ h1 {
   height: 181px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .createQuizz {

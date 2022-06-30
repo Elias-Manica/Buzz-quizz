@@ -77,15 +77,21 @@ function putQuestions(array, number) {
   }
 }
 
-function selectAnswer(elemento) {
-  let dad = elemento.parentNode.children;
+function selectAnswer(element) {
+  let dad = element.parentNode.children;
   for (let i = 0; i < dad.length; i++) {
-    elemento.parentNode.children[i].classList.add("opacity");
-    elemento.parentNode.children[i].children[1].classList.remove("black");
+    element.parentNode.children[i].classList.add("opacity");
+    element.parentNode.children[i].children[1].classList.remove("black");
   }
-  elemento.classList.remove("opacity");
-  elemento.parentNode.classList.add("noclick");
+  element.classList.remove("opacity");
+  element.parentNode.classList.add("noclick");
+
+  setTimeout(function () {
+    element.parentNode.parentElement.nextElementSibling.scrollIntoView();
+  }, 2000);
 }
+
+function goToNextQuestion(element) {}
 
 function htmlScreen2() {
   let screen1 = document.querySelector(".screen1");
