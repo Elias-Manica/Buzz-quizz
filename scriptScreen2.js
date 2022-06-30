@@ -26,13 +26,16 @@ function showQuestionsQuizz(object) {
       answerQuizz.push(global[j].answers);
     }
   }
-  console.log(answerQuizz);
   qtfyQuest = quantifyQuestions(questionsQuizz);
 }
 
 function quantifyQuestions(array) {
   let quantify = array.length;
   return quantify;
+}
+
+function comparador() {
+  return Math.random() - 0.5;
 }
 
 function putQuestions(array, number) {
@@ -51,7 +54,8 @@ function putQuestions(array, number) {
   }
   let boxAnswer = document.querySelectorAll(".boxAnswer");
   for (let j = 0; j < number; j++) {
-    console.log(j);
+    console.log(answerQuizz[j]);
+    answerQuizz[j].sort(comparador);
     console.log(answerQuizz[j]);
     for (let p = 0; p < answerQuizz[j].length; p++) {
       boxAnswer[j].innerHTML += `
