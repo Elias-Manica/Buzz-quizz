@@ -225,6 +225,14 @@ h1 {
   color: #000000;
 }
 
+.opacity {
+  opacity: 0.3;
+}
+
+.noclick {
+  pointer-events: none;
+}
+
 @media (max-width: 1100px) {
   .boxAllQuizz {
     width: 100%;

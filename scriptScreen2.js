@@ -59,7 +59,7 @@ function putQuestions(array, number) {
     console.log(answerQuizz[j]);
     for (let p = 0; p < answerQuizz[j].length; p++) {
       boxAnswer[j].innerHTML += `
-        <div class="answer">
+        <div class="answer" onclick="selectAnswer(this)" >
           <img src=${answerQuizz[j][p].image} />
           <p>${answerQuizz[j][p].text}</p>
         </div>
@@ -69,7 +69,14 @@ function putQuestions(array, number) {
   }
 }
 
-function putAnswer() {}
+function selectAnswer(elemento) {
+  let dad = elemento.parentNode.children;
+  for (let i = 0; i < dad.length; i++) {
+    elemento.parentNode.children[i].classList.add("opacity");
+  }
+  elemento.classList.remove("opacity");
+  elemento.parentNode.classList.add("noclick");
+}
 
 function htmlScreen2() {
   let screen1 = document.querySelector(".screen1");
