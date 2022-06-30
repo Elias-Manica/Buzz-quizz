@@ -15,7 +15,6 @@ function showAllQuizz(object) {
   let title;
   let showList = [];
   divAllQuizz.innerHTML = "";
-  console.log(listObjects);
   for (let i = 0; i < listObjects.length; i++) {
     image = listObjects[i].image;
     title = listObjects[i].title;
@@ -40,5 +39,4 @@ function showAllQuizz(object) {
     `;
     }
   }
-  console.log(showList);
 }
