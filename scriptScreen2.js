@@ -58,13 +58,21 @@ function putQuestions(array, number) {
     answerQuizz[j].sort(comparador);
     console.log(answerQuizz[j]);
     for (let p = 0; p < answerQuizz[j].length; p++) {
-      boxAnswer[j].innerHTML += `
+      if (answerQuizz[j][p].isCorrectAnswer) {
+        boxAnswer[j].innerHTML += `
         <div class="answer" onclick="selectAnswer(this)" >
           <img src=${answerQuizz[j][p].image} />
-          <p>${answerQuizz[j][p].text}</p>
+          <p class = "green black">${answerQuizz[j][p].text}</p>
         </div>
       `;
-      console.log(answerQuizz[j][p].text);
+      } else {
+        boxAnswer[j].innerHTML += `
+        <div class="answer" onclick="selectAnswer(this)" >
+          <img src=${answerQuizz[j][p].image} />
+          <p class = "red black">${answerQuizz[j][p].text}</p>
+        </div>
+      `;
+      }
     }
   }
 }
@@ -73,6 +81,7 @@ function selectAnswer(elemento) {
   let dad = elemento.parentNode.children;
   for (let i = 0; i < dad.length; i++) {
     elemento.parentNode.children[i].classList.add("opacity");
+    elemento.parentNode.children[i].children[1].classList.remove("black");
   }
   elemento.classList.remove("opacity");
   elemento.parentNode.classList.add("noclick");
