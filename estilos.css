@@ -10,6 +10,11 @@
 h1{
     font-size: 23px;
 }
+h2{
+    font-size: 20px;
+    text-align: left;
+    padding: 15px 0px 0px 10px;
+}
 
 .conteudoScreen3 input{
     margin: 0 auto;
@@ -27,12 +32,13 @@ strong{
     font-weight: 700;
 }
 
-.prosseguirParaPergs{
+.botaoProsseguir{
     background-color: #EC362D;
+    font-size: 21px;
     color: #FFF5F4;
     margin: 0 auto;
     margin-top: 40px;
-    width: 369px;
+    width: 370px;
     height: 54px;
     text-align: center;
     display: flex;
@@ -50,7 +56,6 @@ margin: 0 auto;
 margin-top: 20px;
 background-color: #fff;
 border: 1px solid black;
-border-radius: ;
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -58,6 +63,17 @@ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 @media (max-width: 1100px) {
 h1{
     font-size: 20px;
+}
+.conteudoScreen3 input{
+    font-size: 19px;
+    width: 341px;
+    height: 46px;
+}
+
+.botaoProsseguir{
+    width: 325px;
+    font-size: 18px;
+
 }
 
 
