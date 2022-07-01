@@ -9,6 +9,7 @@ function catchQuizzes() {
 }
 
 function showAllQuizz(object) {
+  console.log(object);
   let listObjects = object.data;
   let divAllQuizz = document.querySelector(".allQuizz");
   let image;
@@ -30,11 +31,12 @@ function showAllQuizz(object) {
           rgba(0, 0, 0, 0.5) 64.58%,
           #000000 100%
         ), url(${listObjects[i].image})"
-        onclick="htmlScreen2()"
+        onclick="htmlScreen2(this)"
         >
           <p>
             ${listObjects[i].title}
           </p>
+          <p class="hidden">${listObjects[i].id}</p>
       </div>
     `;
     }
