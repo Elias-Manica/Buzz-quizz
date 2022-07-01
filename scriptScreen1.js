@@ -2,7 +2,7 @@ catchQuizzes();
 
 function catchQuizzes() {
   const promisse = axios.get(
-    "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes"
+    "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes"
   );
 
   promisse.then(showAllQuizz);
@@ -15,7 +15,6 @@ function showAllQuizz(object) {
   let title;
   let showList = [];
   divAllQuizz.innerHTML = "";
-  console.log(listObjects);
   for (let i = 0; i < listObjects.length; i++) {
     image = listObjects[i].image;
     title = listObjects[i].title;
@@ -31,6 +30,7 @@ function showAllQuizz(object) {
           rgba(0, 0, 0, 0.5) 64.58%,
           #000000 100%
         ), url(${listObjects[i].image})"
+        onclick="htmlScreen2()"
         >
           <p>
             ${listObjects[i].title}
@@ -39,5 +39,4 @@ function showAllQuizz(object) {
     `;
     }
   }
-  console.log(showList);
 }
