@@ -1,3 +1,5 @@
+printScreen1();
+
 catchQuizzes();
 
 function catchQuizzes() {
@@ -41,4 +43,68 @@ function showAllQuizz(object) {
     `;
     }
   }
+}
+
+function printScreen1() {
+  let printScreen = document.querySelector(".screen1");
+  printScreen.innerHTML = "";
+  printScreen.innerHTML = `
+  <div class="topBar">BuzzQuizz</div>
+  <div class="contentQuizz">
+    <div class="boxMyQuizzEmpty">
+      <div class="myQuizz">
+        <p>Você não criou nenhum quizz ainda :(</p>
+        <div class="createQuizz" onclick="">Criar Quizz</div>
+      </div>
+    </div>
+    <div class="boxMyQuizzProject hidden">
+      <div class="title">
+        <h1>Seus Quizzes</h1>
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </div>
+      <div class="myCreatedQuizz">
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+        <div
+          class="quizz"
+          style="background-image: url(imagens/deferiascomoex.jpg)"
+        >
+          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+        </div>
+      </div>
+    </div>
+    <div class="boxAllQuizz">
+      <h1>Todos os Quizzes</h1>
+      <div class="allQuizz"></div>
+    </div>
+  </div>
+  `;
 }

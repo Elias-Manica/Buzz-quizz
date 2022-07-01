@@ -61,6 +61,7 @@ function putQuestions(array, number) {
       `;
   }
   let boxAnswer = document.querySelectorAll(".boxAnswer");
+  boxAnswer.innerHTML = "";
   for (let j = 0; j < number; j++) {
     answerQuizz[j].sort(comparador);
     for (let p = 0; p < answerQuizz[j].length; p++) {
@@ -118,10 +119,7 @@ function selectAnswer(element) {
   }, 2000);
 }
 
-function htmlScreen2(object) {
-  idQuizz = object.children[1].innerHTML;
-  console.log(idQuizz);
-
+function htmlScreen2() {
   let screen1 = document.querySelector(".screen1");
   screen1.innerHTML = "";
   screen1.innerHTML = `
@@ -194,6 +192,29 @@ function computationResults() {
     </div>
   </div>
   <div class="buttomRestart ">Reiniciar Quizz</div>
-  <div class="buttomHome ">Voltar pra home</div>
+  <div class="buttomHome" >Voltar pra home</div>
   `;
+
+  let buttomHome = document.querySelector(".buttomHome");
+  buttomHome.addEventListener("click", function () {
+    location.reload();
+  });
+
+  let buttomRestart = document.querySelector(".buttomRestart");
+  buttomRestart.addEventListener("click", restartQuizz);
+}
+
+function restartQuizz() {
+  catchQuestionsQuizz();
+  let photoBanner;
+  let title;
+  let questionsQuizz = [];
+  let global;
+  let qtfyQuest;
+  let answerQuizz = [];
+  let idQuizz = 1;
+  let hits = [];
+  let levels = [];
+  let level;
+  htmlScreen2();
 }
