@@ -52,7 +52,7 @@ function putQuestions(array, number) {
 
   for (let i = 0; i < number; i++) {
     allscreen2.innerHTML += `
-      <div class="boxQuestion">
+      <div class="boxQuestion noclick">
           <div class="question"><p>${array[i]}</p></div>
               <div class="boxAnswer">
                   
@@ -96,11 +96,6 @@ function selectAnswer(element) {
   }
   element.classList.remove("opacity");
   element.parentNode.classList.add("noclick");
-
-  setTimeout(function () {
-    element.parentNode.parentElement.nextElementSibling.scrollIntoView();
-  }, 2000);
-
   if (element.parentNode.parentElement.nextElementSibling === null) {
     computationResults();
     let result = document.querySelector(".result");
@@ -108,6 +103,19 @@ function selectAnswer(element) {
       result.scrollIntoView();
     }, 2000);
   }
+
+  if (
+    element.parentElement.parentElement.nextElementSibling.classList[1] ===
+    "noclick"
+  ) {
+    element.parentElement.parentElement.nextElementSibling.classList.remove(
+      "noclick"
+    );
+  }
+
+  setTimeout(function () {
+    element.parentNode.parentElement.nextElementSibling.scrollIntoView();
+  }, 2000);
 }
 
 function htmlScreen2(object) {
@@ -136,6 +144,12 @@ function htmlScreen2(object) {
       </div>
     `;
   putQuestions(questionsQuizz, qtfyQuest);
+  firstQuestions();
+}
+
+function firstQuestions() {
+  let boxQuestion = document.querySelector(".boxQuestion");
+  boxQuestion.classList.remove("noclick");
 }
 
 function computationResults() {
