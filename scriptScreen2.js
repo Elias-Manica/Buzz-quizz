@@ -151,26 +151,24 @@ function computationResults() {
   resultValue = Math.ceil(resultValue);
   console.log(levels);
   let bigger;
-  bigger = levels[0].minValue;
-  resultText = levels[0].text;
-  resultTitle = levels[0].title;
-  resultImage = levels[0].image;
-  console.log(bigger);
+  let resultIndexs;
+  let listBigger = [];
   for (let i = 0; i < levels.length; i++) {
-    resultText = levels[i].text;
-    console.log(resultText);
-    console.log(bigger);
-    resultTitle = levels[i].title;
-    resultImage = levels[i].image;
-    if (levels[i].minValue >= bigger) {
-      bigger = levels[i].minValue;
-      if (bigger <= resultValue) {
-        resultText = levels[i].text;
-        console.log(resultText);
-        console.log(bigger);
-        resultTitle = levels[i].title;
-        resultImage = levels[i].image;
-      }
+    bigger = levels[i].minValue;
+    if (resultValue - bigger < 0) {
+      listBigger.push(10000);
+    } else {
+      listBigger.push(resultValue - bigger);
+    }
+    console.log(listBigger);
+    let minLevel;
+    for (let p = 0; p < listBigger.length; p++) {
+      minLevel = Math.min.apply(null, listBigger);
+      console.log(listBigger.indexOf(minLevel));
+      resultIndexs = listBigger.indexOf(minLevel);
+      resultTitle = levels[resultIndexs].title;
+      resultText = levels[resultIndexs].text;
+      resultImage = levels[resultIndexs].image;
     }
   }
   allscreen2.innerHTML += `
