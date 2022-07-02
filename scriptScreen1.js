@@ -95,36 +95,10 @@ function printScreen1() {
           style="background-image: url(imagens/deferiascomoex.jpg)"
         >
           <p>É ex-BBB ou ex-De férias com o Ex?</p>
-        </div>
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
-        </div>
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
-        </div>
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
-        </div>
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
-        </div>
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
+          <div class="boxRed">
+            <ion-icon name="create-outline"></ion-icon>
+            <ion-icon name="trash-outline"></ion-icon>
+          </div>
         </div>
       </div>
     </div>
