@@ -4,19 +4,21 @@ let questionsQuizz = [];
 let global;
 let qtfyQuest;
 let answerQuizz = [];
-let idQuizz = 1;
 let hits = [];
 let levels = [];
 let level;
 
-catchQuestionsQuizz();
-
-function catchQuestionsQuizz() {
+function catchQuestionsQuizz(valor) {
   const promisse = axios.get(
-    `https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${idQuizz}`
+    `https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/${valor}`
   );
 
   promisse.then(showQuestionsQuizz);
+}
+
+function first() {
+  let valor = 2;
+  catchQuestionsQuizz(valor);
 }
 
 function showQuestionsQuizz(object) {
@@ -47,6 +49,7 @@ function comparador() {
 }
 
 function putQuestions(array, number) {
+  catchQuestionsQuizz();
   let allscreen2 = document.querySelector(".allscreen2");
   allscreen2.innerHTML = "";
 
@@ -119,7 +122,7 @@ function selectAnswer(element) {
   }, 2000);
 }
 
-function htmlScreen2() {
+function htmlScreen2(object) {
   let screen1 = document.querySelector(".screen1");
   screen1.innerHTML = "";
   screen1.innerHTML = `
@@ -141,6 +144,7 @@ function htmlScreen2() {
         </div>
       </div>
     `;
+
   putQuestions(questionsQuizz, qtfyQuest);
   firstQuestions();
 }
@@ -148,6 +152,12 @@ function htmlScreen2() {
 function firstQuestions() {
   let boxQuestion = document.querySelector(".boxQuestion");
   boxQuestion.classList.remove("noclick");
+}
+
+function wait(element) {
+  // puxa uma tela de carregamento
+  catchQuestionsQuizz(element.children[1].innerHTML);
+  setTimeout(htmlScreen2, 2000);
 }
 
 function computationResults() {
@@ -206,15 +216,5 @@ function computationResults() {
 
 function restartQuizz() {
   catchQuestionsQuizz();
-  let photoBanner;
-  let title;
-  let questionsQuizz = [];
-  let global;
-  let qtfyQuest;
-  let answerQuizz = [];
-  let idQuizz = 1;
-  let hits = [];
-  let levels = [];
-  let level;
   htmlScreen2();
 }

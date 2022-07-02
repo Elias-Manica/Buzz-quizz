@@ -33,7 +33,7 @@ function showAllQuizz(object) {
           rgba(0, 0, 0, 0.5) 64.58%,
           #000000 100%
         ), url(${listObjects[i].image})"
-        onclick="htmlScreen2(this)"
+        onclick="wait(this)"
         >
           <p>
             ${listObjects[i].title}
