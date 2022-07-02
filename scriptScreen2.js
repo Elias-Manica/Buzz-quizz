@@ -99,7 +99,7 @@ function selectAnswer(element) {
     computationResults();
     let result = document.querySelector(".result");
     setTimeout(function () {
-      result.scrollIntoView();
+      result.scrollIntoView(false);
     }, 2000);
   }
 
@@ -218,6 +218,9 @@ function computationResults() {
 }
 
 function restartQuizz() {
+  let topo = document.querySelector(".boxQuestion");
+  topo.scrollIntoView(true);
+  hits = [];
   catchQuestionsQuizz();
   htmlScreen2();
 }

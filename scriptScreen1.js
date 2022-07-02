@@ -1,11 +1,24 @@
 printScreen1();
 
+loadingscreen1();
+
 catchQuizzes();
 
-function waitScreen1() {
-  loadingscreen1();
-  catchQuizzes();
-  setTimeout(printScreen1, 2000);
+getQuizzLocalStorage();
+
+function getQuizzLocalStorage() {
+  console.log(localStorage.length);
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let value = localStorage.getItem(key);
+    console.log(value);
+  }
+  let boxMyQuizzEmpty = document.querySelector(".boxMyQuizzEmpty");
+  let boxMyQuizzProject = document.querySelector(".boxMyQuizzProject");
+  if (localStorage.length > 0) {
+    boxMyQuizzEmpty.classList.add("hidden");
+    boxMyQuizzProject.classList.remove("hidden");
+  }
 }
 
 function loadingscreen1() {
