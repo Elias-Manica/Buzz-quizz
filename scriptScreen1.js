@@ -2,6 +2,20 @@ printScreen1();
 
 catchQuizzes();
 
+function waitScreen1() {
+  loadingscreen1();
+  catchQuizzes();
+  setTimeout(printScreen1, 2000);
+}
+
+function loadingscreen1() {
+  let divAllQuizz = document.querySelector(".allQuizz");
+  divAllQuizz.innerHTML = "";
+  divAllQuizz.innerHTML = `
+    <div class="topBar">BuzzQuizz</div>
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>    `;
+}
+
 function catchQuizzes() {
   const promisse = axios.get(
     "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes"

@@ -16,11 +16,6 @@ function catchQuestionsQuizz(valor) {
   promisse.then(showQuestionsQuizz);
 }
 
-function first() {
-  let valor = 2;
-  catchQuestionsQuizz(valor);
-}
-
 function showQuestionsQuizz(object) {
   console.log(object.data);
   photoBanner = object.data.image;
@@ -155,9 +150,17 @@ function firstQuestions() {
 }
 
 function wait(element) {
-  // puxa uma tela de carregamento
+  loading();
   catchQuestionsQuizz(element.children[1].innerHTML);
   setTimeout(htmlScreen2, 2000);
+}
+
+function loading() {
+  let screen1 = document.querySelector(".screen1");
+  screen1.innerHTML = "";
+  screen1.innerHTML = `
+    <div class="topBar">BuzzQuizz</div>
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>    `;
 }
 
 function computationResults() {
