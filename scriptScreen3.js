@@ -7,7 +7,6 @@ let tituloQuizz = "";
 let urlQUizz = "";
 let qtdPerQuizz = 0;
 let qtdNivQuizz = 0;
-let id = 0;
 
 let objetoQuizz = {
   title: "",
@@ -293,34 +292,11 @@ function prosseguirParaFinalizar() {
     );
   }
 
-  if (!tituloValido) {
-    tratarErro("titulo " + i);
-  }
-  if (!percentValido) {
-    tratarErro("percentual " + i);
-  }
-  if (!urlValido) {
-    tratarErro("url " + i);
-  }
-  if (!descricaoValida) {
-    tratarErro("descricao " + i);
-  }
-}
-if (arrayNiveis.length == niveis.length && peloMenosUmZero) {
-  objetoQuizz.levels = arrayNiveis;
-  let promise = axios.post(
-    "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes",
-    objetoQuizz
-  );
-  promise.then(screen3Finalizar);
-  promise.catch(deuErroNoPost);
-} else {
-  tratarErro(
-    "ou não tá tudo feito ou nao tem pelo menos um nível com percentual zero "
-  );
+
+
 }
 
-function renderizarTelaFinal() {
+function renderizarTelaFinal(id) {
   divScreen.innerHTML = "";
   divScreen1.innerHTML = "";
   let textoInner = topo;
@@ -350,9 +326,8 @@ function renderizarTelaFinal() {
 }
 
 function screen3Finalizar(response) {
-  renderizarTelaFinal();
   console.log("deu certo");
-  id = response.data.id;
+  let id = response.data.id;
   let localstore = localStorage.getItem("idQuizzesUsuario");
   let array = [];
   let str = "";
@@ -363,6 +338,9 @@ function screen3Finalizar(response) {
   array.push(id);
   str = JSON.stringify(array);
   localStorage.setItem("idQuizzesUsuario", str);
+  renderizarTelaFinal(id);
+
+
 }
 
 function obterMeusQuizzes() {
