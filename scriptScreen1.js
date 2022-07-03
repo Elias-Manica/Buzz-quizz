@@ -37,39 +37,59 @@ function catchQuizzes() {
   promisse.then(showAllQuizz);
 }
 
+function obterMeusQuizzes() {
+  let localstore = localStorage.getItem("idQuizzesUsuario");
+  if (localstore !== null) {
+    return JSON.parse(localstore);
+  }
+  return null;
+}
+
+
 function showAllQuizz(object) {
   console.log(object);
   let listObjects = object.data;
   let divAllQuizz = document.querySelector(".allQuizz");
-  let image;
-  let title;
-  let showList = [];
+  //let showList = [];
   divAllQuizz.innerHTML = "";
+  let meusQuizzes = obterMeusQuizzes();
+  const divMeusQuizzes = document.querySelector(".myCreatedQuizz");
+
+
   for (let i = 0; i < listObjects.length; i++) {
-    image = listObjects[i].image;
-    title = listObjects[i].title;
-    if (!showList.includes(image) || !showList.includes(title)) {
-      showList.push(image);
-      showList.push(title);
-      divAllQuizz.innerHTML += `
-      <div
-        class="quizz"
-        style="background-image: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(0, 0, 0, 0.5) 64.58%,
-          #000000 100%
-        ), url(${listObjects[i].image})"
-        onclick="wait(this)"
-        >
-          <p>
-            ${listObjects[i].title}
-          </p>
-          <p class="hidden">${listObjects[i].id}</p>
-      </div>
-    `;
+    if (meusQuizzes.includes(listObjects[i].id)){
+      imprimeObjetoNaDiv(listObjects[i],divMeusQuizzes);
+      continue;
     }
+    imprimeObjetoNaDiv(listObjects[i], divAllQuizz);
   }
+}
+
+function imprimeObjetoNaDiv(objeto, div){
+  let image = objeto.image;
+  let title = objeto.title; 
+  let id = objeto.id;     
+  //showList.push(image);
+  //showList.push(title);
+  div.innerHTML += `
+    <div
+      class="quizz"
+      style="background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.5) 64.58%,
+        #000000 100%
+      ), url(${image})"
+      onclick="wait(this)"
+      >
+        <p>
+          ${title}
+        </p>
+        <p class="hidden">${id}</p>
+    </div>
+  `;
+
+
 }
 
 function printScreen1() {
@@ -90,16 +110,7 @@ function printScreen1() {
         <ion-icon name="add-circle-sharp" onclick="criarTela3()"></ion-icon>
       </div>
       <div class="myCreatedQuizz">
-        <div
-          class="quizz"
-          style="background-image: url(imagens/deferiascomoex.jpg)"
-        >
-          <p>É ex-BBB ou ex-De férias com o Ex?</p>
-          <div class="boxRed">
-            <ion-icon name="create-outline"></ion-icon>
-            <ion-icon name="trash-outline"></ion-icon>
-          </div>
-        </div>
+        
       </div>
     </div>
     <div class="boxAllQuizz">
