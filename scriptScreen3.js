@@ -326,6 +326,7 @@ function renderizarTelaFinal() {
 function screen3Finalizar(response) {
   console.log("deu certo");
   const id = response.data.id;
+  console.log(id);
   let localstore = localStorage.getItem("idQuizzesUsuario");
   let array = [];
   let str = "";
@@ -335,6 +336,7 @@ function screen3Finalizar(response) {
   array.push(id);
   str = JSON.stringify(array);
   localStorage.setItem("idQuizzesUsuario", str);
+  renderizarTelaFinal();
 }
 
 function acessarQuizz() {}
