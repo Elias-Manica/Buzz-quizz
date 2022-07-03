@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-bt">
   <head>
     <meta charset="UTF-8" />
@@ -12,219 +12,26 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="estilos.css" />
+
     <link rel="stylesheet" href="style.css" />
 
     <title>BuzzQuizz💻</title>
   </head>
   <body>
-    <div class="screen1 hidden">
-      <div class="topBar">BuzzQuizz</div>
-      <div class="contentQuizz">
-        <div class="boxMyQuizzEmpty">
-          <div class="myQuizz">
-            <p>Você não criou nenhum quizz ainda :(</p>
-            <div class="createQuizz">Criar Quizz</div>
-          </div>
-        </div>
-        <div class="boxMyQuizzProject hidden">
-          <div class="title">
-            <h1>Seus Quizzes</h1>
-            <ion-icon name="add-circle-sharp"></ion-icon>
-          </div>
-          <div class="myCreatedQuizz">
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-            <div
-              class="quizz"
-              style="background-image: url(imagens/deferiascomoex.jpg)"
-            >
-              <p>É ex-BBB ou ex-De férias com o Ex?</p>
-            </div>
-          </div>
-        </div>
-        <div class="boxAllQuizz">
-          <h1>Todos os Quizzes</h1>
-          <div class="allQuizz"></div>
-        </div>
-      </div>
-    </div>
-    <div class="screen2 hidden">
-      <div class="topBar">BuzzQuizz</div>
-      <div
-        class="bannerQuizz"
-        style="
-          background-image: linear-gradient(
-              0deg,
-              rgba(0, 0, 0, 0.57),
-              rgba(0, 0, 0, 0.57)
-            ),
-            url(./imagens/deferiascomoex.jpg);
-        "
-      >
-        <p>É ex-BBB ou ex-De férias com o Ex?</p>
-      </div>
-    </div>
-
-
-
-
-
-
-    <div class="screen3">
+    
     
 
+    
+    <div class="screen3">
+  
+    </div>
 
-      <div class="screen3">
-        <div class="topBar">BuzzQuizz</div>
-        <div class="conteudoScreen3">
-          <h1><strong>Comece pelo começo</strong></h1>
-          <div class="divComecarQuizz">
-            <input type="text" placeholder="Título do seu quizz" />
-            <input type="text" placeholder="URL da imagem do seu quizz" />
-            <input type="text" placeholder="Quantidade de perguntas do quizz" />
-            <input type="text" placeholder="Quantidade de níveis do quizz" />
-          </div>
-          <div class="botaoProsseguir" onclick="prosseguirParaPergs()">
-            Prosseguir pra criar perguntas
-          </div>
-        </div>
-  
-  
-        <div class="conteudoScreen3">
-          <h1><strong>Crie suas perguntas</strong></h1>
-  
-          <ul class="listaperguntas">
-  
-            
-  
-  
-  
-  
-            <li class="pergunta emEdicao">
-              <div class="divComecarQuizz">
-                <h2>
-                  <strong>Pergunta ${i+1}</strong>             
-                  <ion-icon name="create-outline" onclick="expandirOuContrairLi(this)"> </ion-icon>
-                </h2>          
-                <input type="text" placeholder="Texto da Pergunta" />
-                <input type="text" placeholder="Cor de fundo da Pergunta" />
-                
-                <div class="respostacorreta">
-                  <h2><strong>Resposta correta</strong></h2>
-                  <input type="text" placeholder="Resposta correta" />
-                  <input type="text" placeholder="URL da imagem" />
-                </div>
-  
-  
-  
-  
-  
-                <div class="respostasincorretas">
-      
-                  <h2><strong>Respostas incorretas</strong></h2>
-  
-  
-  
-  
-                  <div class="incorreta">
-                    <input type="text" placeholder="Resposta incorreta ${j}" />
-                    <input type="text" placeholder="URL da imagem ${j}" />
-                </div>
-  
-  
-  
-              </div>
-            </div>
-  
-            </li>
-  
-  
-            <li class="pergunta ocultar">
-              <div class="divComecarQuizz">
-                <h2>
-                  <strong>Pergunta ${i+1}</strong>             
-                  <ion-icon name="create-outline" onclick="expandirOuContrairLi(this)"> </ion-icon>
-                </h2>          
-                <input type="text" placeholder="Texto da Pergunta" />
-                <input type="text" placeholder="Cor de fundo da Pergunta" />
-                
-                <div class="respostacorreta">
-                  <h2><strong>Resposta correta</strong></h2>
-                  <input type="text" placeholder="Resposta correta" />
-                  <input type="text" placeholder="URL da imagem" />
-                </div>
-  
-                <div class="respostasincorretas">
-      
-                  <h2><strong>Respostas incorretas</strong></h2>
-  
-                  
-  
-                  <div class="incorreta">
-                    <input type="text" placeholder="Resposta incorreta ${j}" />
-                    <input type="text" placeholder="URL da imagem ${j}" />
-                </div>
-  
-  
-              </div>
-            </div>
-  
-            </li>
-  
-  
-  
-  
-  
-            <div class="botaoProsseguir" onclick="prosseguirParaNiveis()">
-              Prosseguir pra criar Níveis
-            </div>
-          </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-          
-  
-  
-  
-      </div>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="./scriptScreen1.js"></script>
     <script src="./scriptScreen3.js"></script>
 
 
