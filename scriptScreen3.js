@@ -239,7 +239,6 @@ function prosseguirParaFinalizar() {
   let objNivel = criarNivel();
 
   const niveis = document.querySelectorAll(".nivel");
-  console.log(niveis);
 
   for (let i = 0; i < niveis.length; i++) {
     inputs = niveis[i].querySelectorAll("input");
@@ -329,7 +328,6 @@ function acessarQuizz(valor) {
 }
 
 function screen3Finalizar(response) {
-  console.log("deu certo");
   let id = response.data.id;
   let localstore = localStorage.getItem("idQuizzesUsuario");
   let array = [];
@@ -352,9 +350,7 @@ function obterMeusQuizzes() {
   return null;
 }
 
-function deuErroNoPost(erro) {
-  console.log(erro.response.status);
-}
+function deuErroNoPost(erro) {}
 
 function validarNumIntervalo(num, min, max) {
   if (num >= min && num <= max) return true;
@@ -482,7 +478,6 @@ function construirObjQuest(li) {
     objQst.title = titulo;
     objQst.color = cor;
     objQst.answers = arrayResps;
-    console.log(objQst);
 
     return objQst;
   } else {

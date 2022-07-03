@@ -7,11 +7,9 @@ catchQuizzes();
 getQuizzLocalStorage();
 
 function getQuizzLocalStorage() {
-  console.log(localStorage.length);
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let value = localStorage.getItem(key);
-    console.log(value);
   }
   let boxMyQuizzEmpty = document.querySelector(".boxMyQuizzEmpty");
   let boxMyQuizzProject = document.querySelector(".boxMyQuizzProject");
@@ -46,13 +44,11 @@ function obterMeusQuizzes() {
 }
 
 function showAllQuizz(object) {
-  console.log(object);
   let listObjects = object.data;
   let divAllQuizz = document.querySelector(".allQuizz");
   //let showList = [];
   divAllQuizz.innerHTML = "";
   let meusQuizzes = obterMeusQuizzes();
-  console.log(meusQuizzes);
   const divMeusQuizzes = document.querySelector(".myCreatedQuizz");
 
   for (let i = 0; i < listObjects.length; i++) {

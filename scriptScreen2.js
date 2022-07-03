@@ -18,7 +18,6 @@ function catchQuestionsQuizz(valor) {
 }
 
 function showQuestionsQuizz(object) {
-  console.log(object.data);
   photoBanner = object.data.image;
   title = object.data.title;
   global = object.data.questions;
@@ -92,8 +91,6 @@ function selectAnswer(element) {
   }
   if (element.children[1].classList[0] === "green") {
     hits.push("green");
-    console.log("acertou");
-    console.log(hits);
   }
   element.classList.remove("opacity");
   element.parentNode.classList.add("noclick");
@@ -176,7 +173,6 @@ function computationResults() {
   resultValue = questionsHits / qtfyQuest;
   resultValue = resultValue * 100;
   resultValue = Math.ceil(resultValue);
-  console.log(levels);
   let bigger;
   let resultIndexs;
   let listBigger = [];
@@ -187,11 +183,9 @@ function computationResults() {
     } else {
       listBigger.push(resultValue - bigger);
     }
-    console.log(listBigger);
     let minLevel;
     for (let p = 0; p < listBigger.length; p++) {
       minLevel = Math.min.apply(null, listBigger);
-      console.log(listBigger.indexOf(minLevel));
       resultIndexs = listBigger.indexOf(minLevel);
       resultTitle = levels[resultIndexs].title;
       resultText = levels[resultIndexs].text;
