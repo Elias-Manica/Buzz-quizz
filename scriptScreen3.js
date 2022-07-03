@@ -1,4 +1,6 @@
 const divScreen = document.querySelector(".screen3");
+const divScreen1 = document.querySelector(".screen1");
+
 const classesAux = ["emEdicao", "ocultar"];
 
 let tituloQuizz = "";
@@ -11,6 +13,75 @@ let objetoQuizz = {
     image: "",
     questions: [],
     levels: [],
+};
+
+let obj2Quizz = {
+	title: "Título do quizz",
+	image: "https://http.cat/411.jpg",
+	questions: [
+		{
+			title: "Título da pergunta 1",
+			color: "#123456",
+			answers: [
+				{
+					text: "Texto da resposta 1",
+					image: "https://http.cat/411.jpg",
+					isCorrectAnswer: true
+				},
+				{
+					text: "Texto da resposta 2",
+					image: "https://http.cat/412.jpg",
+					isCorrectAnswer: false
+				}
+			]
+		},
+		{
+			title: "Título da pergunta 2",
+			color: "#123456",
+			answers: [
+				{
+					text: "Texto da resposta 1",
+					image: "https://http.cat/411.jpg",
+					isCorrectAnswer: true
+				},
+				{
+					text: "Texto da resposta 2",
+					image: "https://http.cat/412.jpg",
+					isCorrectAnswer: false
+				}
+			]
+		},
+		{
+			title: "Título da pergunta 3",
+			color: "#123456",
+			answers: [
+				{
+					text: "Texto da resposta 1",
+					image: "https://http.cat/411.jpg",
+					isCorrectAnswer: true
+				},
+				{
+					text: "Texto da resposta 2",
+					image: "https://http.cat/412.jpg",
+					isCorrectAnswer: false
+				}
+			]
+		}
+	],
+	levels: [
+		{
+			title: "Título do nível 1",
+			image: "https://http.cat/411.jpg",
+			text: "Descrição do nível 1",
+			minValue: 0
+		},
+		{
+			title: "Título do nível 2",
+			image: "https://http.cat/412.jpg",
+			text: "Descrição do nível 2",
+			minValue: 50
+		}
+	]
 };
 
 
@@ -171,6 +242,15 @@ function screen3Nivs(qtdNiveis){
 }
 
 function prosseguirParaFinalizar(){
+/*    let promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", obj2Quizz);
+    promise.then(screen3Finalizar);
+    promise.catch(deuErroNoPost);
+*/
+
+
+
+
+
     let arrayNiveis = [];
     let inputs = [];
     let titulo = "";
@@ -230,7 +310,10 @@ function prosseguirParaFinalizar(){
     }
     if ((arrayNiveis.length == niveis.length) && peloMenosUmZero){
         objetoQuizz.levels = arrayNiveis;
-        screen3Finalizar();
+        let promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", objetoQuizz);
+        promise.then(screen3Finalizar);
+        promise.catch(deuErroNoPost);
+    
     } else{
         tratarErro("ou não tá tudo feito ou nao tem pelo menos um nível com percentual zero ");
     }
@@ -240,8 +323,35 @@ function prosseguirParaFinalizar(){
 
 }
 
-function screen3Finalizar(){
+function renderizarTelaFinal(){
+    let textoInner = topo;
+    textoInner += `
+    <div class="conteudoScreen3">
+        <h1><strong>Seu quizz está pronto!</strong></h1>
+        <img src="https://http.cat/412.jpg">
+        <div class="botaoProsseguir" onclick="acessarQuizz()">
+            Acessar Quizz
+        </div>
+    </div>
+    `;
+    divScreen.innerHTML = textoInner;
+
+
+
+}
+
+function screen3Finalizar(response){
+    console.log("deu certo");
+    const id = response.data.id;
+
     
+}
+function acessarQuizz(){
+
+}
+
+function deuErroNoPost(erro){
+    console.log(erro.response.status)
 }
 
 function validarNumIntervalo(num, min, max){
@@ -331,12 +441,15 @@ function construirObjQuest(li){
 
     if (! tituloValido){
         tratarErro ("titulo da questao tem que ser maior que 20");
+        return null;
     }
     if (! corValida){
-        tratarErro ("erro na cor...")
+        tratarErro ("erro na cor...");
+        return null;
     }
     if (! respostaValida){
         tratarErro("precisa de ter uma resposta correta");
+        return null;
     }
 
     
@@ -368,6 +481,7 @@ function construirObjQuest(li){
     };
     if (! pelomenosumaIncorreta){
         tratarErro("precisa de ter pelo menos uma resp incorreta");
+        return null;
     }
 
     if (corValida, tituloValido, respostaValida, pelomenosumaIncorreta){
@@ -419,6 +533,7 @@ function validarCor(cor){
 
 
 function criarTela3(){
+    divScreen1.innerHTML = "";
     const textoInner = `
     <div class="topBar">BuzzQuizz</div>
     <div class="conteudoScreen3">
@@ -434,7 +549,7 @@ function criarTela3(){
       </div>
     </div>
     `;
-    divScreen.innerHTML += topo + textoInner;
+    divScreen.innerHTML = topo + textoInner;
 
 
 
@@ -502,4 +617,6 @@ function validarNumMin(num, minimo){
 
 }
 
-screen3Nivs(2);
+//criarTela3();
+//screen3Nivs(2);
+//renderizarTelaFinal();
