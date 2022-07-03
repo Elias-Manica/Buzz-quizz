@@ -45,7 +45,6 @@ function obterMeusQuizzes() {
   return null;
 }
 
-
 function showAllQuizz(object) {
   console.log(object);
   let listObjects = object.data;
@@ -55,20 +54,19 @@ function showAllQuizz(object) {
   let meusQuizzes = obterMeusQuizzes();
   const divMeusQuizzes = document.querySelector(".myCreatedQuizz");
 
-
   for (let i = 0; i < listObjects.length; i++) {
-    if (meusQuizzes.includes(listObjects[i].id)){
-      imprimeObjetoNaDiv(listObjects[i],divMeusQuizzes);
+    if (meusQuizzes.includes(listObjects[i].id)) {
+      imprimeObjetoNaDiv(listObjects[i], divMeusQuizzes);
       continue;
     }
     imprimeObjetoNaDiv(listObjects[i], divAllQuizz);
   }
 }
 
-function imprimeObjetoNaDiv(objeto, div){
+function imprimeObjetoNaDiv(objeto, div) {
   let image = objeto.image;
-  let title = objeto.title; 
-  let id = objeto.id;     
+  let title = objeto.title;
+  let id = objeto.id;
   //showList.push(image);
   //showList.push(title);
   div.innerHTML += `
@@ -88,8 +86,6 @@ function imprimeObjetoNaDiv(objeto, div){
         <p class="hidden">${id}</p>
     </div>
   `;
-
-
 }
 
 function printScreen1() {

@@ -498,4 +498,12 @@ h1 {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .quizzFinal {
+    width: 90%;
+  }
+
+  .buttomHome {
+    width: 80%;
+  }
 }
