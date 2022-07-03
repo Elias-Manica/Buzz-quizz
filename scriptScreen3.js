@@ -291,9 +291,6 @@ function prosseguirParaFinalizar() {
       "ou não tá tudo feito ou nao tem pelo menos um nível com percentual zero "
     );
   }
-
-
-
 }
 
 function renderizarTelaFinal(id) {
@@ -316,13 +313,19 @@ function renderizarTelaFinal(id) {
               <p class="titulo" >${objetoQuizz.title}</p>
               <p class="hidden">${id}</p>
           </div>
-          <div class="botaoProsseguir" onclick="acessarQuizz()">
+          <div class="botaoProsseguir" onclick="acessarQuizz(${id})">
               Acessar Quizz
           </div>
           <div class="buttomHome buttomFinal" onclick="restarPage()">Voltar pra home</div>
       </div>
       `;
   divScreen1.innerHTML = textoInner;
+}
+
+function acessarQuizz(valor) {
+  loading();
+  catchQuestionsQuizz(valor);
+  setTimeout(htmlScreen2, 2000);
 }
 
 function screen3Finalizar(response) {
@@ -339,8 +342,6 @@ function screen3Finalizar(response) {
   str = JSON.stringify(array);
   localStorage.setItem("idQuizzesUsuario", str);
   renderizarTelaFinal(id);
-
-
 }
 
 function obterMeusQuizzes() {
