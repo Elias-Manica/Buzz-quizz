@@ -321,6 +321,32 @@ function prosseguirParaFinalizar(){
 
 
 
+    if (!tituloValido) {
+      tratarErro("titulo " + i);
+    }
+    if (!percentValido) {
+      tratarErro("percentual " + i);
+    }
+    if (!urlValido) {
+      tratarErro("url " + i);
+    }
+    if (!descricaoValida) {
+      tratarErro("descricao " + i);
+    }
+  }
+  if (arrayNiveis.length == niveis.length && peloMenosUmZero) {
+    objetoQuizz.levels = arrayNiveis;
+    let promise = axios.post(
+      "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes",
+      objetoQuizz
+    );
+    promise.then(screen3Finalizar);
+    promise.catch(deuErroNoPost);
+  } else {
+    tratarErro(
+      "ou não tá tudo feito ou nao tem pelo menos um nível com percentual zero "
+    );
+  }
 }
 
 function renderizarTelaFinal(){
