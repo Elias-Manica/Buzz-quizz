@@ -254,6 +254,10 @@ h1 {
   padding: 20px;
 }
 
+.result p {
+  word-break: break-word;
+}
+
 .titleLevel {
   height: 99px;
   width: 100%;
