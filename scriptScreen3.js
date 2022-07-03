@@ -310,7 +310,7 @@ function prosseguirParaFinalizar(){
     }
     if ((arrayNiveis.length == niveis.length) && peloMenosUmZero){
         objetoQuizz.levels = arrayNiveis;
-        let promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", objetoQuizz);
+        let promise = axios.post("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes", objetoQuizz);
         promise.then(screen3Finalizar);
         promise.catch(deuErroNoPost);
     
