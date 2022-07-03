@@ -557,6 +557,7 @@ function expandirOuContrairLi(icon) {
     li.classList.toggle("ocultar");
     emEdicao.classList.toggle("ocultar");
     emEdicao.classList.toggle("emEdicao");
+    li.scrollIntoView(true);
   }
 }
 

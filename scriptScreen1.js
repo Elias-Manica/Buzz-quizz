@@ -52,12 +52,16 @@ function showAllQuizz(object) {
   //let showList = [];
   divAllQuizz.innerHTML = "";
   let meusQuizzes = obterMeusQuizzes();
+  console.log(meusQuizzes);
   const divMeusQuizzes = document.querySelector(".myCreatedQuizz");
 
   for (let i = 0; i < listObjects.length; i++) {
-    if (meusQuizzes.includes(listObjects[i].id)) {
-      imprimeObjetoNaDiv(listObjects[i], divMeusQuizzes);
-      continue;
+    if (localStorage.length > 0) {
+      if (meusQuizzes.includes(listObjects[i].id)) {
+        imprimeObjetoNaDiv(listObjects[i], divMeusQuizzes);
+        continue;
+      }
+      imprimeObjetoNaDiv(listObjects[i], divAllQuizz);
     }
     imprimeObjetoNaDiv(listObjects[i], divAllQuizz);
   }
