@@ -1,6 +1,7 @@
 let photoBanner;
 let title;
 let questionsQuizz = [];
+let colorQuizz = [];
 let global;
 let qtfyQuest;
 let answerQuizz = [];
@@ -24,6 +25,7 @@ function showQuestionsQuizz(object) {
   level = object.data.levels;
   for (let j = 0; j < global.length; j++) {
     questionsQuizz.push(global[j].title);
+    colorQuizz.push(global[j].color);
     for (let i = 0; i < 1; i++) {
       answerQuizz.push(global[j].answers);
     }
@@ -43,7 +45,7 @@ function comparador() {
   return Math.random() - 0.5;
 }
 
-function putQuestions(array, number) {
+function putQuestions(array, number, color) {
   catchQuestionsQuizz();
   let allscreen2 = document.querySelector(".allscreen2");
   allscreen2.innerHTML = "";
@@ -51,7 +53,7 @@ function putQuestions(array, number) {
   for (let i = 0; i < number; i++) {
     allscreen2.innerHTML += `
       <div class="boxQuestion noclick">
-          <div class="question"><p>${array[i]}</p></div>
+          <div class="question" style="background-color: ${color[i]}"><p>${array[i]}</p></div>
               <div class="boxAnswer">
                   
               </div>
@@ -140,7 +142,7 @@ function htmlScreen2(object) {
       </div>
     `;
 
-  putQuestions(questionsQuizz, qtfyQuest);
+  putQuestions(questionsQuizz, qtfyQuest, colorQuizz);
   firstQuestions();
 }
 

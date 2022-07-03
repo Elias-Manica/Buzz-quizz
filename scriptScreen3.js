@@ -296,7 +296,7 @@ function prosseguirParaFinalizar() {
 //
 
 function renderizarTelaFinal() {
-  divScreen1.innerHTML = "";
+  divScreen.innerHTML = "";
   let textoInner = topo;
   textoInner += `
     <div class="conteudoScreen3">
@@ -308,10 +308,10 @@ function renderizarTelaFinal() {
           rgba(255, 255, 255, 0) 0%,
           rgba(0, 0, 0, 0.5) 64.58%,
           #000000 100%
-        ), url(${obj2Quizz.image})"
+        ), url(${objetoQuizz.image})"
         onclick=""
         >
-            <p class="titulo" >${obj2Quizz.title}</p>
+            <p class="titulo" >${objetoQuizz.title}</p>
             <p class="hidden">${id}</p>
         </div>
         <div class="botaoProsseguir" onclick="acessarQuizz()">
@@ -325,8 +325,18 @@ function renderizarTelaFinal() {
 
 function screen3Finalizar(response) {
   console.log("deu certo");
-  id = response.data.id;
+  const id = response.data.id;
+  let localstore = localStorage.getItem("idQuizzesUsuario");
+  let array = [];
+  let str = "";
+  if (localstore !== null) {
+    array = JSON.parse(localstore);
+  }
+  array.push(id);
+  str = JSON.stringify(array);
+  localStorage.setItem("idQuizzesUsuario", str);
 }
+
 function acessarQuizz() {}
 
 function deuErroNoPost(erro) {
@@ -556,6 +566,14 @@ function validarNumMin(num, minimo) {
     if (numero < minimo) return false;
     return true;
   }
+}
+
+function obterMeusQuizzes() {
+  let localstore = localStorage.getItem("idQuizzesUsuario");
+  if (localstore !== null) {
+    return JSON.parse(localstore);
+  }
+  return null;
 }
 
 //criarTela3();

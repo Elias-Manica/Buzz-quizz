@@ -81,7 +81,7 @@ function printScreen1() {
     <div class="boxMyQuizzEmpty">
       <div class="myQuizz">
         <p>Você não criou nenhum quizz ainda :(</p>
-        <div class="createQuizz" onclick="renderizarTelaFinal()">Criar Quizz</div>
+        <div class="createQuizz" onclick="criarTela3()">Criar Quizz</div>
       </div>
     </div>
     <div class="boxMyQuizzProject hidden">
