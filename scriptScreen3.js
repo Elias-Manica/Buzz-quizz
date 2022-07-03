@@ -1,4 +1,6 @@
 const divScreen = document.querySelector(".screen3");
+const divScreen1 = document.querySelector(".screen1");
+
 const classesAux = ["emEdicao", "ocultar"];
 
 let tituloQuizz = "";
@@ -531,6 +533,7 @@ function validarCor(cor){
 
 
 function criarTela3(){
+    divScreen1.innerHTML = "";
     const textoInner = `
     <div class="topBar">BuzzQuizz</div>
     <div class="conteudoScreen3">
@@ -546,7 +549,7 @@ function criarTela3(){
       </div>
     </div>
     `;
-    divScreen.innerHTML += topo + textoInner;
+    divScreen.innerHTML = topo + textoInner;
 
 
 
@@ -616,4 +619,4 @@ function validarNumMin(num, minimo){
 
 //criarTela3();
 //screen3Nivs(2);
-renderizarTelaFinal();
+//renderizarTelaFinal();
