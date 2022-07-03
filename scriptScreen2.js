@@ -224,3 +224,7 @@ function restartQuizz() {
   catchQuestionsQuizz();
   htmlScreen2();
 }
+
+function restarPage() {
+  location.reload();
+}

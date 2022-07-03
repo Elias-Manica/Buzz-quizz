@@ -81,13 +81,13 @@ function printScreen1() {
     <div class="boxMyQuizzEmpty">
       <div class="myQuizz">
         <p>Você não criou nenhum quizz ainda :(</p>
-        <div class="createQuizz" onclick="criarTela3()">Criar Quizz</div>
+        <div class="createQuizz" onclick="renderizarTelaFinal()">Criar Quizz</div>
       </div>
     </div>
     <div class="boxMyQuizzProject hidden">
       <div class="title">
         <h1>Seus Quizzes</h1>
-        <ion-icon name="add-circle-sharp"></ion-icon>
+        <ion-icon name="add-circle-sharp" onclick="criarTela3()"></ion-icon>
       </div>
       <div class="myCreatedQuizz">
         <div
