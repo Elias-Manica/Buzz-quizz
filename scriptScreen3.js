@@ -1,4 +1,6 @@
 const divScreen = document.querySelector(".screen3");
+const classesAux = ["emEdicao", "ocultar"];
+
 let tituloQuizz = "";
 let urlQUizz = "";
 let qtdPerQuizz = 0;
@@ -11,12 +13,7 @@ let objetoQuizz = {
     levels: [],
 };
 
-let objNivel = {
-    title: "",
-    image: "",
-    text: "",
-    minValue: 0
-};
+
 
 
 
@@ -25,7 +22,7 @@ const topo = `
 
 `
 
-const minPer = 1;
+const minPer = 3;
 const minNiveis = 2;
 
 
@@ -67,7 +64,6 @@ function prosseguirParaPergs(){
 
 function screen3per(numPer){
     let textoInner = ";"
-    let classesAux = ["emEdicao", "ocultar"];
     textoInner += `
         <div class="conteudoScreen3">
             <h1><strong>Crie suas perguntas</strong></h1>
@@ -157,10 +153,147 @@ function prosseguirParaNiveis(){
 
 
 function screen3Nivs(qtdNiveis){
-    alert ("entrou ond n devia");
     divScreen.innerHTML = "";
-
     divScreen.innerHTML += topo;
+
+    let textoInner = `
+    <div class="conteudoScreen3">
+        <h1><strong>Agora, decida os níveis!</strong></h1>
+        <ul>
+        </ul>
+        <div class="botaoProsseguir" onclick="prosseguirParaFinalizar()">
+            Finalizar quizz
+        </div>
+    </div>
+    `;
+    divScreen.innerHTML +=  textoInner;
+    popularULcomXLis(divScreen.querySelector("ul"), qtdNiveis);
+}
+
+function prosseguirParaFinalizar(){
+    let arrayNiveis = [];
+    let inputs = [];
+    let titulo = "";
+    let percent = 0;
+    let urlNiv = "";
+    let descricao = "";
+    let tituloValido = false;
+    let percentValido = false;
+    let urlValido = false;
+    let descricaoValida = false;
+    let peloMenosUmZero = false;
+    let objNivel = criarNivel();
+
+    const niveis = document.querySelectorAll(".nivel");
+    console.log(niveis);
+
+    for(let i = 0; i < niveis.length; i++){
+        inputs = niveis[i].querySelectorAll("input");
+        titulo = inputs[0].value;
+        percent = inputs[1].value;
+        urlNiv = inputs[2].value;
+        descricao = inputs[3].value;
+        
+        tituloValido = validarTextoMin(titulo, 10);
+        percentValido = validarNumIntervalo(percent, 0, 100);
+        urlValido = validarUrl(urlNiv);
+        descricaoValida = validarTextoMin(descricao,30);
+
+        if (tituloValido && percentValido && urlValido && descricaoValida){
+            objNivel = criarNivel();
+            setarTitle(objNivel,titulo);
+            setarMinValue(objNivel,percent);
+            setarImage(objNivel, urlNiv);
+            setarText(objNivel,descricao);
+            if (percent == 0){
+                peloMenosUmZero = true;
+            }
+            arrayNiveis.push(objNivel);
+        }
+
+        if (! tituloValido ){
+            tratarErro ("titulo " + (i));
+        }
+        if (! percentValido ){
+            tratarErro ("percentual " + (i));
+        }
+        if (! urlValido ){
+            tratarErro ("url " + (i));
+        }
+        if (! descricaoValida ){
+            tratarErro ("descricao " + (i));
+        }
+
+
+
+
+    }
+    if ((arrayNiveis.length == niveis.length) && peloMenosUmZero){
+        objetoQuizz.levels = arrayNiveis;
+        screen3Finalizar();
+    } else{
+        tratarErro("ou não tá tudo feito ou nao tem pelo menos um nível com percentual zero ");
+    }
+
+
+
+
+}
+
+function screen3Finalizar(){
+    
+}
+
+function validarNumIntervalo(num, min, max){
+    if (num>=min && num <=max)
+        return true;
+    return false;
+}
+
+function criarNivel(){
+    let objNivel = {
+        title: "",
+        image: "",
+        text: "",
+        minValue: 0
+    };
+    return objNivel;
+}
+function setarTitle(obj, text){
+    obj.title = text;
+}
+function setarImage(obj, image){
+    obj.image = image;
+}
+function setarText(obj, text){
+    obj.text = text;
+}
+function setarMinValue(obj, minValue){
+    obj.minValue = minValue;
+
+}
+
+
+function popularULcomXLis(ul, x){
+    for (let i = 1; i <= x; i++){
+        let aux = classesAux[1];
+        if (i==1){
+            aux = classesAux[0];
+        }
+        ul.innerHTML += `
+        <li class="nivel ${aux}">
+            <div class="divComecarQuizz">
+            <h2>
+                <strong>Nível ${i} </strong>             
+                <ion-icon name="create-outline" onclick="expandirOuContrairLi(this)"> </ion-icon>
+            </h2>  
+            <input type="text" placeholder="Título do nível" />
+            <input type="text" placeholder="% de acerto mínima" />
+            <input type="text" placeholder="URL da imagem do nível" />
+            <input type="text" placeholder="Descrição do nível" />
+            </div>
+        </li>`;
+    }
 
 }
 
@@ -308,7 +441,6 @@ function criarTela3(){
 }
 
 
-criarTela3();
 
 
 function validarTitulo(titulo){
@@ -369,3 +501,5 @@ function validarNumMin(num, minimo){
     }
 
 }
+
+screen3Nivs(2);
