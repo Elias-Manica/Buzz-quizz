@@ -11,7 +11,7 @@ let level;
 
 function catchQuestionsQuizz(valor) {
   const promisse = axios.get(
-    `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${valor}`
+    `https://mock-api.driven.com.br/api/vs/buzzquizz/quizzes/${valor}`
   );
 
   promisse.then(showQuestionsQuizz);

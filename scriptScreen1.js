@@ -29,7 +29,7 @@ function loadingscreen1() {
 
 function catchQuizzes() {
   const promisse = axios.get(
-    "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/"
+    "https://mock-api.driven.com.br/api/vs/buzzquizz/quizzes/"
   );
 
   promisse.then(showAllQuizz);
@@ -175,7 +175,7 @@ function eraseQuizz() {
   console.log(secreteKey);
   console.log(id);
   const promise = axios.delete(
-    `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`,
+    `https://mock-api.driven.com.br/api/vs/buzzquizz/quizzes/${id}`,
     {
       headers: {
         "Secret-Key": secreteKey,

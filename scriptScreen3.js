@@ -281,7 +281,7 @@ function prosseguirParaFinalizar() {
   if (arrayNiveis.length == niveis.length && peloMenosUmZero) {
     objetoQuizz.levels = arrayNiveis;
     let promise = axios.post(
-      "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",
+      "https://mock-api.driven.com.br/api/vs/buzzquizz/quizzes",
       objetoQuizz
     );
     promise.then(screen3Finalizar);
