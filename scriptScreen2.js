@@ -33,6 +33,7 @@ function showQuestionsQuizz(object) {
     levels.push(level[p]);
   }
   qtfyQuest = quantifyQuestions(questionsQuizz);
+  htmlScreen2();
 }
 
 function quantifyQuestions(array) {
@@ -149,10 +150,8 @@ function firstQuestions() {
 }
 
 function wait(element) {
-  console.log(element);
   loading();
   catchQuestionsQuizz(element.children[1].innerHTML);
-  setTimeout(htmlScreen2, 2000);
 }
 
 function loading() {
