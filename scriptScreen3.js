@@ -7,6 +7,7 @@ let tituloQuizz = "";
 let urlQUizz = "";
 let qtdPerQuizz = 0;
 let qtdNivQuizz = 0;
+let valorKey;
 
 let objetoQuizz = {
   title: "",
@@ -280,7 +281,7 @@ function prosseguirParaFinalizar() {
   if (arrayNiveis.length == niveis.length && peloMenosUmZero) {
     objetoQuizz.levels = arrayNiveis;
     let promise = axios.post(
-      "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes",
+      "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",
       objetoQuizz
     );
     promise.then(screen3Finalizar);
@@ -292,7 +293,8 @@ function prosseguirParaFinalizar() {
   }
 }
 
-function renderizarTelaFinal(id) {
+function renderizarTelaFinal(id, key) {
+  valorKey = key;
   divScreen.innerHTML = "";
   divScreen1.innerHTML = "";
   let textoInner = topo;
@@ -311,6 +313,7 @@ function renderizarTelaFinal(id) {
           >
               <p class="titulo" >${objetoQuizz.title}</p>
               <p class="hidden">${id}</p>
+              <p class="hidden">${key}</p>
           </div>
           <div class="botaoProsseguir" onclick="acessarQuizz(${id})">
               Acessar Quizz
@@ -329,6 +332,7 @@ function acessarQuizz(valor) {
 
 function screen3Finalizar(response) {
   let id = response.data.id;
+  valorKey = response.data.key;
   let localstore = localStorage.getItem("idQuizzesUsuario");
   let array = [];
   let str = "";
@@ -337,9 +341,10 @@ function screen3Finalizar(response) {
     array = JSON.parse(localstore);
   }
   array.push(id);
+  array.push(valorKey);
   str = JSON.stringify(array);
   localStorage.setItem("idQuizzesUsuario", str);
-  renderizarTelaFinal(id);
+  renderizarTelaFinal(id, valorKey);
 }
 
 function obterMeusQuizzes() {
