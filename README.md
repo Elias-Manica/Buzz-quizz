@@ -2,7 +2,7 @@
 
 A responsive website that the simulate BuzzFeed.
 
-gif
+![WhatsApp-Video-2022-09-01-at-19 32 04](https://user-images.githubusercontent.com/103606213/188024208-3af9aceb-0daa-4308-a2fa-ac6ad7db1af6.gif)
 
 Try it out now at https://elias-manica.github.io/Buzz-quizz/
 
